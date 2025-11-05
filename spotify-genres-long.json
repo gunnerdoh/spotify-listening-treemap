@@ -18,11 +18,12 @@
         { "name": "yacht rock", "size": 1 },
         { "name": "soft rock", "size": 1 },
         { "name": "glam rock", "size": 1 },
-        { "name": "neo-psychedelic", "size": 1 }
+        { "name": "neo-psychedelic", "size": 1 },
+        { "name": "gothic rock", "size": 2 }
       ]
     },
     {
-      "name": "Indie & Alt",
+      "name": "Indie",
       "children": [
         { "name": "indie", "size": 4 },
         { "name": "lo-fi indie", "size": 2 },
@@ -33,7 +34,6 @@
         { "name": "post-punk", "size": 3 },
         { "name": "shoegaze", "size": 1 },
         { "name": "new wave", "size": 2 },
-        { "name": "gothic rock", "size": 2 },
         { "name": "darkwave", "size": 2 },
         { "name": "madchester", "size": 1 },
         { "name": "cold wave", "size": 1 },
