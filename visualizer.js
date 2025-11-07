@@ -4,7 +4,6 @@ let currentFile = "spotify-genres-short.json";
 let hasSpotifyData = false;
 
 function preload() {
-  // Only preload local file if no Spotify data provided yet
   if (!window.spotifyGenreData) {
     data = loadJSON(currentFile);
   } else {
@@ -14,34 +13,49 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1200, 1200);
+  // Get a reference to the canvas
+  let canvas = createCanvas(800, 800)
+    .style("border", "2px solid #000")
+    .style("margin", "10px");
+  let buttonContainer = createDiv('');
 
-  createButton("Last 4 Weeks")
-    .position(180, 760)
+  buttonContainer.position(canvas.position().x, canvas.position().y + 700);
+
+  buttonContainer.style('width', '800px'); 
+  buttonContainer.style('display', 'flex'); 
+  buttonContainer.style('justify-content', 'center');
+  buttonContainer.style('align-items', 'center'); 
+  buttonContainer.style('gap', '15px');
+
+  let label = createSpan('over the last...');
+  label.parent(buttonContainer); 
+  label.style('font-family', 'Arial');
+  label.style('font-size', '16px');
+
+  createButton("4 Weeks")
+    .parent(buttonContainer) 
     .mousePressed(() => changeData("short_term"))
     .style("font-weight", "800")
     .style("padding", "5px");
 
-  createButton("Last 6 Months")
-    .position(400, 760)
+  createButton("6 Months")
+    .parent(buttonContainer) 
     .mousePressed(() => changeData("medium_term"))
     .style("font-weight", "800")
     .style("padding", "5px");
 
-  createButton("Last Year")
-    .position(640, 760)
+  createButton("Year")
+    .parent(buttonContainer) // Add to the div
     .mousePressed(() => changeData("long_term"))
     .style("font-weight", "800")
     .style("padding", "5px");
-
+  
   loadTreemap();
 }
-
 function draw() {
   background(240);
   if (treevis) treevis.draw();
   drawTitle();
-  drawTopGenres();
 }
 
 function loadTreemap() {
@@ -80,23 +94,6 @@ function loadTreemap() {
   treevis.onSelected((v, name) => console.log("Selected:", name));
 }
 
-function getTopMetaCategories() {
-  let categories = [];
-  if (data && data.children) {
-    data.children.forEach((category) => {
-      let totalSize = 0;
-      function sumSizes(node) {
-        if (node.size) totalSize += node.size;
-        if (node.children) node.children.forEach((child) => sumSizes(child));
-      }
-      sumSizes(category);
-      categories.push({ name: category.name, size: totalSize });
-    });
-  }
-  categories.sort((a, b) => b.size - a.size);
-  return categories.slice(0, 5);
-}
-
 function changeData(range) {
   console.log("Loading data for:", range);
 
@@ -130,40 +127,15 @@ function changeData(range) {
 
 function drawTitle() {
   fill(0);
-  textAlign(RIGHT);
+  textAlign(CENTER);
   textSize(24);
   textStyle(BOLD);
   text(
     "Most Listened-to Genres on Spotify",
-    width / 1.85,
+    width / 2,
     50
   );
   textSize(14);
-}
-
-function drawTopGenres() {
-  let topCategories = getTopMetaCategories();
-  let boxX = 770;
-  let boxY = 80;
-  let boxWidth = 200;
-  let boxHeight = 200;
-
-  fill(255);
-  noStroke();
-  rect(boxX, boxY, boxWidth, boxHeight, 5);
-
-  fill(0);
-  textAlign(LEFT);
-  textSize(18);
-  textStyle(BOLD);
-  text("Categories", boxX + 20, boxY + 30);
-
-  textSize(16);
-  textStyle(NORMAL);
-  topCategories.forEach((category, i) => {
-    let y = boxY + 60 + i * 25;
-    text(`${i + 1}. ${category.name}`, boxX + 20, y);
-  });
 }
 
 function mousePressed() {

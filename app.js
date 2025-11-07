@@ -5,9 +5,6 @@ const scopes = "user-top-read user-read-private";
 let accessToken = null;
 let userProfile = null;
 
-// ───────────────────────────────────────────
-// Auth flow
-// ───────────────────────────────────────────
 window.onload = async () => {
   const loginBtn = document.getElementById("loginButton");
   if (loginBtn) loginBtn.addEventListener("click", redirectToSpotifyAuth);
@@ -31,9 +28,7 @@ window.onload = async () => {
   }
 };
 
-// ───────────────────────────────────────────
 // Spotify helper functions
-// ───────────────────────────────────────────
 async function redirectToSpotifyAuth() {
   const verifier = generateRandomString(128);
   const challenge = await generateCodeChallenge(verifier);

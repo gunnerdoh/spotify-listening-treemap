@@ -1,0 +1,103 @@
+{
+  "children": [
+    {
+      "name": "Rock",
+      "children": [
+        { "name": "art rock", "size": 4 },
+        { "name": "post-rock", "size": 3 },
+        { "name": "garage rock", "size": 2 },
+        { "name": "glam rock", "size": 1 },
+        { "name": "indie rock", "size": 3 },
+        { "name": "alternative rock", "size": 3 },
+        { "name": "roots rock", "size": 1 },
+        { "name": "country rock", "size": 1 },
+        { "name": "classic rock", "size": 2 },
+        { "name": "psychedelic rock", "size": 1 },
+        { "name": "noise rock", "size": 2 },
+        { "name": "grunge", "size": 1 },
+        { "name": "math rock", "size": 2 },
+        { "name": "reggae rock", "size": 1 },
+        { "name": "yacht rock", "size": 1 },
+        { "name": "soft rock", "size": 1 }
+      ]
+    },
+    {
+      "name": "Indie",
+      "children": [
+        { "name": "indie", "size": 4 },
+        { "name": "baroque pop", "size": 4 },
+        { "name": "lo-fi indie", "size": 2 },
+        { "name": "midwest emo", "size": 1 },
+        { "name": "anti-folk", "size": 1 },
+        { "name": "art pop", "size": 1 },
+        { "name": "indie jazz", "size": 1 },
+        { "name": "japanese indie", "size": 1 },
+        { "name": "proto-punk", "size": 1 },
+        { "name": "post-punk", "size": 4 },
+        { "name": "shoegaze", "size": 1 },
+        { "name": "new wave", "size": 1 },
+        { "name": "gothic rock", "size": 1 },
+        { "name": "darkwave", "size": 1 }
+      ]
+    },
+    {
+      "name": "Folk & Country",
+      "children": [
+        { "name": "folk rock", "size": 1 },
+        { "name": "folk", "size": 1 },
+        { "name": "singer-songwriter", "size": 1 },
+        { "name": "alt country", "size": 3 },
+        { "name": "americana", "size": 1 },
+        { "name": "country", "size": 2 },
+        { "name": "red dirt", "size": 1 }
+      ]
+    },
+    {
+      "name": "Electronic",
+      "children": [
+        { "name": "idm", "size": 1 },
+        { "name": "ambient", "size": 1 },
+        { "name": "electronica", "size": 1 },
+        { "name": "alternative dance", "size": 1 },
+        { "name": "new rave", "size": 1 },
+        { "name": "french house", "size": 1 },
+        { "name": "electronic", "size": 1 },
+        { "name": "electro", "size": 1 },
+        { "name": "trip hop", "size": 1 }
+      ]
+    },
+    {
+      "name": "Jazz",
+      "children": [
+        { "name": "jazz", "size": 1 },
+        { "name": "cool jazz", "size": 1 },
+        { "name": "vocal jazz", "size": 1 }
+      ]
+    },
+    {
+      "name": "Hip-Hop & Rap",
+      "children": [
+        { "name": "rap", "size": 2 },
+        { "name": "hip hop", "size": 1 },
+        { "name": "west coast hip hop", "size": 1 },
+        { "name": "rage rap", "size": 1 }
+      ]
+    },
+    {
+      "name": "Reggae & Ska",
+      "children": [
+        { "name": "reggae", "size": 1 },
+        { "name": "roots reggae", "size": 1 },
+        { "name": "ska punk", "size": 1 },
+        { "name": "ska", "size": 1 }
+      ]
+    },
+    {
+      "name": "Other",
+      "children": [
+        { "name": "punk", "size": 1 },
+        { "name": "pop punk", "size": 1 }
+      ]
+    }
+  ]
+}
