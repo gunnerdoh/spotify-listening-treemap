@@ -98,9 +98,24 @@ async function initializeApp() {
   try {
     userProfile = await fetchFromSpotify("https://api.spotify.com/v1/me");
     console.log(`🎧 Logged in as ${userProfile.display_name}`);
+
+    const loginBtn = document.getElementById("loginButton");
+    const logoutBtn = document.getElementById("logoutButton");
+    const userInfo = document.getElementById("user-info");
+
+    // Update UI to show logged-in state
+    if (loginBtn) loginBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "inline-block";
+    if (userInfo) userInfo.textContent = `🎧 Logged in as ${userProfile.display_name}`;
+
+    // Bind logout button
+    logoutBtn.addEventListener("click", logoutUser);
+
+    // Fetch initial data
     const data = await fetchGenreData("medium_term");
-    window.spotifyGenreData = data; // make globally accessible
+    window.spotifyGenreData = data;
     window.spotifyFetchData = fetchGenreData;
+
     console.log("✅ Spotify data ready for treemap.");
   } catch (err) {
     console.error("Init failed:", err);
@@ -117,13 +132,16 @@ async function fetchGenreData(range) {
 
 function tallyGenres(genres) {
   const metaMap = {
-    Rock: ["rock", "metal", "punk", "grunge", "emo"],
+    Rock: ["rock", "grunge"],
+    Punk: ["punk", "emo"], 
+    Metal: ["metal"],
+    Indie: ["indie", "alternative"],
     Pop: ["pop", "dance", "electro", "synth", "idol"],
     Rap: ["hip hop", "rap", "trap"],
-    "Jazz & Blues": ["jazz", "swing", "bebop", "bossa", "blues", "soul"],
+    "Jazz and Blues": ["jazz", "swing", "bebop", "bossa", "blues", "soul"],
     Classical: ["classical", "baroque", "romantic", "orchestra"],
     Electronic: ["techno", "house", "idm", "edm", "trance", "drum and bass"],
-    "Folk & Country": ["country", "bluegrass", "folk", "americana"],
+    "Folk & Country": ["country", "bluegrass", "folk", "americana", "red dirt"],
     RnB: ["r&b", "soul", "funk", "motown"],
     World: ["afro", "latin", "reggae", "k-pop", "j-pop", "brazilian"],
   };
@@ -152,4 +170,29 @@ function tallyGenres(genres) {
       })),
     })),
   };
+}
+
+function logoutUser() {
+  // Clear session and access token
+  sessionStorage.removeItem("spotify_access_token");
+  sessionStorage.removeItem("spotify_code_verifier");
+  accessToken = null;
+  userProfile = null;
+
+  // Reset the UI
+  const loginBtn = document.getElementById("loginButton");
+  const logoutBtn = document.getElementById("logoutButton");
+  const userInfo = document.getElementById("user-info");
+
+  if (loginBtn) loginBtn.style.display = "inline-block";
+  if (logoutBtn) logoutBtn.style.display = "none";
+  if (userInfo) userInfo.textContent = "";
+
+  // Optional: clear visualization
+  if (window.treevis) {
+    window.treevis = null;
+  }
+
+  // Redirect to base page
+  window.location.href = redirectUri;
 }

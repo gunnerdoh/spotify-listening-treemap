@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Spotify Genre Visualization</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/Schnurber/treevis@master/addons/p5.treevis.js"></script>
 </head>
 <body>
-  <div id="login-container" style="text-align:center; margin-top:50px;">
-    <button id="loginButton">Login with Spotify</button>
+  <div id="login-container">
+    <div id="login-container">
+        <button id="loginButton">Login with Spotify</button>
+        <div id="logout-container">
+            <button id="logoutButton">
+                Logout
+            </button>
+            <p id="user-info"></p>
+        </div>
+    </div>      
   </div>
 
   <script src="app.js"></script>

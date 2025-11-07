@@ -17,19 +17,19 @@ function setup() {
   createCanvas(1200, 1200);
 
   createButton("Last 4 Weeks")
-    .position(140, 720)
+    .position(180, 760)
     .mousePressed(() => changeData("short_term"))
     .style("font-weight", "800")
     .style("padding", "5px");
 
   createButton("Last 6 Months")
-    .position(360, 720)
+    .position(400, 760)
     .mousePressed(() => changeData("medium_term"))
     .style("font-weight", "800")
     .style("padding", "5px");
 
   createButton("Last Year")
-    .position(600, 720)
+    .position(640, 760)
     .mousePressed(() => changeData("long_term"))
     .style("font-weight", "800")
     .style("padding", "5px");
