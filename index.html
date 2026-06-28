@@ -9,18 +9,39 @@
 </head>
 <body>
   <div id="login-container">
-    <div id="login-container">
-        <button id="loginButton">Login with Spotify</button>
-        <div id="logout-container">
-            <button id="logoutButton">
-                Logout
-            </button>
-            <p id="user-info"></p>
-        </div>
-    </div>      
+    <button id="loginButton">Login with Spotify</button>
+    <div id="logout-container">
+      <button id="logoutButton">
+        Logout
+      </button>
+      <p id="user-info"></p>
+    </div>
   </div>
 
   <script src="app.js"></script>
   <script src="visualizer.js"></script>
+
+  <section id="app-explanation">
+    <h2>What is this?</h2>
+    <p>
+      This treemap groups Spotify genres from top artists into broader sections. After you log in with Spotify, the chart updates to show your own listening data.
+    </p>
+    <p>
+      Originally made as an INFO 474 project at UW. 
+    </p>
+  </section>
+
+  <section id="logic-explanation">
+    <h2>Genre logic</h2>
+    <p>
+      Spotify gives each artist a list of detailed genre tags, like "indie rock," "trap," or "neo soul." This project checks those tags against a set of broad genre rules, then places each matching tag into a larger category such as Rock, Pop, Electronic, or Hip-Hop & Rap.
+    </p>
+    <p>
+      For each artist, the code first finds the broad categories that best represent that artist's genre list. It mostly counts tags that belong to those strongest categories, which keeps one artist with lots of scattered tags from overwhelming the chart.
+    </p>
+    <p>
+      A few hybrid genres are kept even when they cross categories, like "folk punk," "country rock," or "trip hop." After every artist is counted, the genres are sorted into the treemap: bigger sections mean that genre appeared more often across your top artists for the selected time range.
+    </p>
+  </section>
 </body>
 </html>

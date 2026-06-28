@@ -17,23 +17,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px
-  }
-  
-  #loginButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 30px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    padding-top: 25px;
+    padding-bottom: 10px;
   }
   
   #loginButton:hover {
     background-color: #1ed760;
-    transform: translateY(-1px);
   }
   
   /* --- Visualization container --- */
@@ -52,27 +41,14 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 30px;
+    margin: 0;
     text-align: center;
     cursor: pointer;
   }
   
   /* --- Logout button --- */
   #logoutButton {
-    display: none; /* Hidden until logged in */
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 6px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-  }
-  
-  #logoutButton:hover {
-    background-color: #e2e2e2;
-    transform: translateY(-1px);
+    display: none;
   }
   
   /* --- Logged-in info text --- */
@@ -86,20 +62,81 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
   }
-  
-  /* --- Global button style reset --- */
-  button {
-    font-family: inherit;
-    outline: none;
+
+  #viz-frame {
+    position: relative;
+    width: 804px;
+    height: 804px;
+    margin: 10px;
+  }
+
+  .range-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 52px;
+    width: 100%;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .range-button:hover {
+    background-color: #d0d0d0;
+  }
+
+  .range-button.is-selected {
+    background-color: #d0d0d0;
+  }
+
+  .range-button.is-selected:hover {
+    background-color: #c0c0c0;
+  }
+
+  #example-note {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 100px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+    color: #444;
+  }
+
+  #example-note a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  #app-explanation,
+  #logic-explanation {
+    max-width: 760px;
+    margin: 34px 24px 42px;
+    padding-top: 18px;
+    border-top: 1px solid #ddd;
+    line-height: 1.5;
+  }
+
+  #logic-explanation {
+    margin-top: 0;
+  }
+
+  #app-explanation h2,
+  #logic-explanation h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+
+  #app-explanation p,
+  #logic-explanation p {
+    margin: 8px 0;
+    font-size: 15px;
   }
   
   /* --- Utility: responsive scaling --- */
   @media (max-width: 768px) {
-    #loginButton {
-      padding: 12px 28px;
-      font-size: 16px;
-    }
-  
     #logout-container {
       flex-direction: column;
       gap: 6px;
