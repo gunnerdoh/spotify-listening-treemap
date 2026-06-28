@@ -138,6 +138,7 @@ function loadTreemap() {
     rect(x, y, w, h);
 
     textAlign(LEFT);
+    textStyle(NORMAL);
     fill(0);
     text(label, x + 1, y + 13);
   });
@@ -212,7 +213,7 @@ function drawTitle() {
   fill(0);
   textAlign(CENTER);
   textSize(24);
-  textStyle(BOLD);
+  textStyle(NORMAL);
   text(title, width / 2, 50);
   textSize(14);
 }
@@ -242,7 +243,7 @@ function drawTooltip() {
   const paddingY = 7;
   const lineHeight = 22;
   textSize(13);
-  textStyle(BOLD);
+  textStyle(NORMAL);
   const boxWidth = Math.min(
     340,
     Math.max(...lines.map((line) => textWidth(line))) + paddingX * 2
@@ -287,7 +288,7 @@ function drawLoadingOverlay() {
   fill(0, 0, 45);
   textAlign(CENTER, CENTER);
   textSize(24);
-  textStyle(BOLD);
+  textStyle(NORMAL);
   text("loading", mapX + mapW / 2, mapY + mapH / 2);
   textStyle(NORMAL);
 }
