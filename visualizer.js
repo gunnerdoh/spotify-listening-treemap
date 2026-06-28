@@ -207,7 +207,7 @@ document.addEventListener("spotifyGenreDataLoaded", (event) => {
 function drawTitle() {
   const title = window.spotifyDisplayName
     ? `${window.spotifyDisplayName}'s Most Listened-to Genres`
-    : "Most Listened-to Genres on Spotify";
+    : "Spotify Genre Treemap";
 
   fill(0);
   textAlign(CENTER);
